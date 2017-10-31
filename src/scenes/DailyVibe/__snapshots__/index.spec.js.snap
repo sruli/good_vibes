@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DailyVibe /> renders a <DailyVibe> 1`] = `
+<Image
+  source={1}
+  style={
+    Object {
+      "flex": 1,
+      "height": null,
+      "justifyContent": "flex-end",
+      "width": null,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "marginBottom": "10%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "flexDirection": "row",
+          "justifyContent": "space-around",
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+      />
+    </View>
+  </View>
+</Image>
+`;

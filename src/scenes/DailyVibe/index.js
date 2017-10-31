@@ -1,10 +1,15 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import styles from './styles';
+import ControlBar from './components/ControlBar';
 
-export default () => (
-  <Image
-    style={styles.backgroundImage}
-    source={require('./assets/1.jpg')} // eslint-disable-line global-require
-  />
+const DailyVibe = () => (
+  // eslint-disable-next-line global-require
+  <Image style={styles.backgroundImage} source={require('./assets/1.jpg')}>
+    <View style={styles.controlBar}>
+      <ControlBar />
+    </View>
+  </Image>
 );
+
+export default DailyVibe;
