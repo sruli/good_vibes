@@ -5,9 +5,14 @@ export default StyleSheet.create({
     width: null,
     height: null,
     flex: 1,
-    justifyContent: 'flex-end',
+  },
+  trackToggle: {
+    top: '11%',
   },
   controlBar: {
-    marginBottom: '10%',
+    position: 'absolute',
+    bottom: '7%',
+    left: 0,
+    right: 0,
   },
 });
