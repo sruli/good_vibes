@@ -5,21 +5,21 @@ import { connect } from 'react-redux';
 import styles from './styles';
 import Toggler from './components/Toggler';
 import SongDescription from './components/SongDescription';
-import { getBackgroundColor } from '../../data/vibe/reducer';
+import { getButtonColor } from '../../data/vibe/reducer';
 
-const TrackToggle = ({ backgroundColor }) => (
+const TrackToggle = ({ buttonColor }) => (
   <View style={styles.container}>
-    <Toggler backgroundColor={backgroundColor} />
+    <Toggler buttonColor={buttonColor} />
     <SongDescription />
   </View>
 );
 
 TrackToggle.propTypes = {
-  backgroundColor: PropTypes.string.isRequired,
+  buttonColor: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
-  backgroundColor: getBackgroundColor(state),
+  buttonColor: getButtonColor(state),
 });
 
 export default connect(mapStateToProps)(TrackToggle);

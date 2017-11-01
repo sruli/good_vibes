@@ -6,10 +6,10 @@ import styles from './styles';
 import ControlBar from './components/ControlBar';
 import TrackToggle from './components/TrackToggle';
 import { vibeFetched } from './data/vibe/actions';
-import { getCurrentImage } from './data/vibe/reducer';
+import { getBackgroundImage } from './data/vibe/reducer';
 
 class DailyVibe extends Component {
-  compponentDidMount() {
+  componentDidMount() {
     this.props.onVibeMounted();
   }
 
@@ -29,14 +29,22 @@ class DailyVibe extends Component {
 }
 
 DailyVibe.propTypes = {
+  onVibeMounted: PropTypes.func.isRequired,
+  backgroundImage: PropTypes.number,
+};
+
+DailyVibe.defaultProps = {
+  backgroundImage: undefined,
 };
 
 const mapStateToProps = state => ({
-  backgroundImage: getCurrentImage(state),
+  backgroundImage: getBackgroundImage(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  onVibeMounted: dispatch(vibeFetched()),
+  onVibeMounted: () => {
+    dispatch(vibeFetched());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DailyVibe);
