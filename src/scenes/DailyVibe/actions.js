@@ -2,11 +2,13 @@ import {
   CURRENT_IMAGE_CHANGED,
   PLAY_TAPPED,
   PAUSE_TAPPED,
+  TIMER_RESET,
+  TIMER_SET,
 } from './actionTypes';
 
-export const currentImageChanged = currentImage => ({
+export const currentImageChanged = nextImage => ({
   type: CURRENT_IMAGE_CHANGED,
-  payload: { currentImage },
+  payload: { nextImage },
 });
 
 export const playTapped = () => ({
@@ -15,4 +17,13 @@ export const playTapped = () => ({
 
 export const pauseTapped = () => ({
   type: PAUSE_TAPPED,
+});
+
+export const imageTimerSet = timerKey => ({
+  type: TIMER_SET,
+  payload: { timerKey },
+});
+
+export const timerReset = () => ({
+  type: TIMER_RESET,
 });

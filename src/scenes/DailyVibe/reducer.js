@@ -5,6 +5,7 @@ import {
   CURRENT_IMAGE_CHANGED,
   PLAY_TAPPED,
   PAUSE_TAPPED,
+  TIMER_SET,
 } from './actionTypes';
 
 const playingReducer = (state = false, action) => {
@@ -21,7 +22,16 @@ const playingReducer = (state = false, action) => {
 const currentImageReducer = (state = 0, action) => {
   switch (action.type) {
     case CURRENT_IMAGE_CHANGED:
-      return action.payload.currentImage;
+      return action.payload.nextImage;
+    default:
+      return state;
+  }
+};
+
+const timerKeyReducer = (state = null, action) => {
+  switch (action.type) {
+    case TIMER_SET:
+      return action.payload.timerKey;
     default:
       return state;
   }
@@ -30,6 +40,7 @@ const currentImageReducer = (state = 0, action) => {
 export default combineReducers({
   playing: playingReducer,
   currentImage: currentImageReducer,
+  timerKey: timerKeyReducer,
   data: dataReducer,
 });
 
@@ -39,6 +50,10 @@ export const getCurrentImage = state => (
 
 export const getPlaying = state => (
   state.DailyVibe.playing
+);
+
+export const getTimerKey = state => (
+  state.DailyVibe.timerKey
 );
 
 // TODO test
