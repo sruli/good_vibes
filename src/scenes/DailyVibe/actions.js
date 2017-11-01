@@ -1,4 +1,9 @@
-import { CURRENT_IMAGE_CHANGED, PLAYING_TOGGLED } from './actionTypes';
+import {
+  CURRENT_IMAGE_CHANGED,
+  PLAYING_TOGGLED,
+  PLAY_TAPPED,
+  PAUSE_TAPPED,
+} from './actionTypes';
 
 export const currentImageChanged = currentImage => ({
   type: CURRENT_IMAGE_CHANGED,
@@ -7,4 +12,12 @@ export const currentImageChanged = currentImage => ({
 
 export const togglePlaying = () => ({
   type: PLAYING_TOGGLED,
+});
+
+export const playTapped = () => ({
+  type: PLAY_TAPPED,
+});
+
+export const pauseTapped = () => ({
+  type: PAUSE_TAPPED,
 });
