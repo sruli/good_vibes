@@ -17,8 +17,8 @@ const onTimerReset = function* onTimerReset() {
   const currentKey = yield select(getTimerKey);
   const nextImage = yield select(getNextImage);
   if ((currentKey === timerKey) && playing) {
-    yield put(timerReset());
     yield put(currentImageChanged(nextImage));
+    yield put(timerReset());
   }
 };
 
