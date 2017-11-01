@@ -7,18 +7,30 @@ import Toggler from './components/Toggler';
 import SongDescription from './components/SongDescription';
 import { getButtonColor } from '../../data/vibe/reducer';
 import { getPlaying } from '../../reducer';
-import { togglePlaying } from '../../actions';
+import { playTapped, pauseTapped } from '../../actions';
 
-const TrackToggle = ({ buttonColor, playing, onPlayPauseTapped }) => (
+const TrackToggle = ({
+  buttonColor,
+  playing,
+  onPlayTapped,
+  onPauseTapped,
+}) => (
   <View style={styles.container}>
-    <Toggler {...{ buttonColor, playing, onPlayPauseTapped }} />
+    <Toggler {...{
+      buttonColor,
+      playing,
+      onPlayTapped,
+      onPauseTapped,
+    }}
+    />
     <SongDescription />
   </View>
 );
 
 TrackToggle.propTypes = {
   buttonColor: PropTypes.string.isRequired,
-  onPlayPauseTapped: PropTypes.func.isRequired,
+  onPlayTapped: PropTypes.func.isRequired,
+  onPauseTapped: PropTypes.func.isRequired,
   playing: PropTypes.bool.isRequired,
 };
 
@@ -28,8 +40,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onPlayPauseTapped: () => {
-    dispatch(togglePlaying());
+  onPlayTapped: () => {
+    dispatch(playTapped());
+  },
+  onPauseTapped: () => {
+    dispatch(pauseTapped());
   },
 });
 
