@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import dataReducer from './data/reducer';
-import { CURRENT_IMAGE_CHANGED } from './actionTypes';
+import { CURRENT_IMAGE_CHANGED, PLAYING_TOGGLED } from './actionTypes';
 import { getImages } from './data/vibe/reducer';
 
 const playingReducer = (state = false, action) => {
   switch (action.type) {
+    case PLAYING_TOGGLED:
+      return !state;
     default:
       return state;
   }
@@ -27,6 +29,10 @@ export default combineReducers({
 
 export const getCurrentImage = state => (
   state.DailyVibe.currentImage
+);
+
+export const getPlaying = state => (
+  state.DailyVibe.playing
 );
 
 // TODO test

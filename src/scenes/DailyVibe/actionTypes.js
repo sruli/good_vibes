@@ -1,1 +1,2 @@
 export const CURRENT_IMAGE_CHANGED = 'DailyVibe.CURRENT_IMAGE_CHANGED';
+export const PLAYING_TOGGLED = 'DailyVibe.PLAYING_TOGGLED';

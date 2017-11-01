@@ -11,7 +11,7 @@ export default StyleSheet.create({
   },
   controlBar: {
     position: 'absolute',
-    bottom: '7%',
+    bottom: '5%',
     left: 0,
     right: 0,
   },

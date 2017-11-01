@@ -19,6 +19,8 @@ export default StyleSheet.create({
   icon: {
     backgroundColor: 'transparent',
     textAlign: 'center',
+  },
+  play: {
     marginLeft: 5,
   },
 });
