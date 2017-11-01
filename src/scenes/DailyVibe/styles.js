@@ -7,7 +7,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   trackToggle: {
-    top: '11%',
+    top: '10%',
   },
   controlBar: {
     position: 'absolute',

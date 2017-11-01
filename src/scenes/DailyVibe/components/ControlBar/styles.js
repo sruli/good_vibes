@@ -6,4 +6,7 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: 'transparent',
   },
+  element: {
+    padding: 25,
+  },
 });

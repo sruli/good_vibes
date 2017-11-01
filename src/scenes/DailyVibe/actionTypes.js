@@ -1,0 +1,1 @@
+export const CURRENT_IMAGE_CHANGED = 'DailyVibe.CURRENT_IMAGE_CHANGED';

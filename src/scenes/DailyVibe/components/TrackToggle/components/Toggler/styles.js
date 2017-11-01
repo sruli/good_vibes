@@ -12,7 +12,6 @@ export default StyleSheet.create({
     justifyContent: 'flex-end',
   },
   toggler: {
-    backgroundColor: '#CA4547',
     borderRadius: 30,
     width: 40,
     justifyContent: 'center',
@@ -20,5 +19,6 @@ export default StyleSheet.create({
   icon: {
     backgroundColor: 'transparent',
     textAlign: 'center',
+    marginLeft: 5,
   },
 });
