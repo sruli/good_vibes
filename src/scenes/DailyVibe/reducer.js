@@ -3,15 +3,12 @@ import dataReducer from './data/reducer';
 import { getImages } from './data/vibe/reducer';
 import {
   CURRENT_IMAGE_CHANGED,
-  PLAYING_TOGGLED,
   PLAY_TAPPED,
   PAUSE_TAPPED,
 } from './actionTypes';
 
 const playingReducer = (state = false, action) => {
   switch (action.type) {
-    case PLAYING_TOGGLED:
-      return !state;
     case PLAY_TAPPED:
       return true;
     case PAUSE_TAPPED:
