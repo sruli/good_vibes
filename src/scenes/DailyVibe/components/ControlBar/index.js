@@ -4,10 +4,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
-import { currentImageChanged, togglePlaying } from '../../actions';
 import { getNextImage, getPlaying, getPreviousImage } from '../../reducer';
 import PauseIcon from '../../../../components/PauseIcon';
 import PlayIcon from '../../../../components/PlayIcon';
+import {
+  currentImageChanged,
+  playTapped,
+  pauseTapped,
+} from '../../actions';
 
 const HIT_SLOP = {
   bottom: 30,
@@ -16,12 +20,39 @@ const HIT_SLOP = {
   top: 30,
 };
 
+const PlayButton = ({ onPlayTapped }) => (
+  <TouchableOpacity
+    onPress={onPlayTapped}
+    hitSlop={HIT_SLOP}
+  >
+    <PlayIcon />
+  </TouchableOpacity>
+);
+
+PlayButton.propTypes = {
+  onPlayTapped: PropTypes.func.isRequired,
+};
+
+const PauseButton = ({ onPauseTapped }) => (
+  <TouchableOpacity
+    onPress={onPauseTapped}
+    hitSlop={HIT_SLOP}
+  >
+    <PauseIcon />
+  </TouchableOpacity>
+);
+
+PauseButton.propTypes = {
+  onPauseTapped: PropTypes.func.isRequired,
+};
+
 const ControlBar = ({
   nextImage,
   previousImage,
   playing,
   onNextImageTapped,
-  onPlayPauseTapped,
+  onPlayTapped,
+  onPauseTapped,
   onPreviousImageTapped,
 }) => (
   <View style={styles.container}>
@@ -32,12 +63,7 @@ const ControlBar = ({
       <Icon name="ios-arrow-back" size={35} color="white" />
     </TouchableOpacity>
 
-    <TouchableOpacity
-      onPress={onPlayPauseTapped}
-      hitSlop={HIT_SLOP}
-    >
-      { playing ? <PauseIcon /> : <PlayIcon /> }
-    </TouchableOpacity>
+    { playing ? <PauseButton {...{ onPauseTapped }} /> : <PlayButton {...{ onPlayTapped }} /> }
 
     <TouchableOpacity
       onPress={() => { onNextImageTapped(nextImage); }}
@@ -51,7 +77,8 @@ const ControlBar = ({
 ControlBar.propTypes = {
   nextImage: PropTypes.number.isRequired,
   onNextImageTapped: PropTypes.func.isRequired,
-  onPlayPauseTapped: PropTypes.func.isRequired,
+  onPauseTapped: PropTypes.func.isRequired,
+  onPlayTapped: PropTypes.func.isRequired,
   onPreviousImageTapped: PropTypes.func.isRequired,
   playing: PropTypes.bool.isRequired,
   previousImage: PropTypes.number.isRequired,
@@ -70,8 +97,11 @@ const mapDispatchToProps = dispatch => ({
   onPreviousImageTapped: (previousImage) => {
     dispatch(currentImageChanged(previousImage));
   },
-  onPlayPauseTapped: () => {
-    dispatch(togglePlaying());
+  onPlayTapped: () => {
+    dispatch(playTapped());
+  },
+  onPauseTapped: () => {
+    dispatch(pauseTapped());
   },
 });
 
