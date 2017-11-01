@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 import { getNextImage, getPlaying, getPreviousImage } from '../../reducer';
-import PauseIcon from '../../../../components/PauseIcon';
-import PlayIcon from '../../../../components/PlayIcon';
+import PlayButton from '../../../../components/buttons/PlayButton';
+import PauseButton from '../../../../components/buttons/PauseButton';
 import {
   currentImageChanged,
   playTapped,
@@ -20,31 +20,6 @@ const HIT_SLOP = {
   top: 30,
 };
 
-const PlayButton = ({ onPlayTapped }) => (
-  <TouchableOpacity
-    onPress={onPlayTapped}
-    hitSlop={HIT_SLOP}
-  >
-    <PlayIcon />
-  </TouchableOpacity>
-);
-
-PlayButton.propTypes = {
-  onPlayTapped: PropTypes.func.isRequired,
-};
-
-const PauseButton = ({ onPauseTapped }) => (
-  <TouchableOpacity
-    onPress={onPauseTapped}
-    hitSlop={HIT_SLOP}
-  >
-    <PauseIcon />
-  </TouchableOpacity>
-);
-
-PauseButton.propTypes = {
-  onPauseTapped: PropTypes.func.isRequired,
-};
 
 const ControlBar = ({
   nextImage,

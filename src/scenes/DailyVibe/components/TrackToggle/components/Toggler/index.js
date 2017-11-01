@@ -1,42 +1,9 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
-import PlayIcon from '../../../../../../components/PlayIcon';
-import PauseIcon from '../../../../../../components/PauseIcon';
-
-const HIT_SLOP = {
-  bottom: 30,
-  left: 30,
-  right: 30,
-  top: 30,
-};
-
-const PlayButton = ({ onPlayTapped }) => (
-  <TouchableOpacity
-    onPress={onPlayTapped}
-    hitSlop={HIT_SLOP}
-  >
-    <PlayIcon size={30} style={[styles.icon, styles.play]} />
-  </TouchableOpacity>
-);
-
-PlayButton.propTypes = {
-  onPlayTapped: PropTypes.func.isRequired,
-};
-
-const PauseButton = ({ onPauseTapped }) => (
-  <TouchableOpacity
-    onPress={onPauseTapped}
-    hitSlop={HIT_SLOP}
-  >
-    <PauseIcon size={30} style={styles.icon} />
-  </TouchableOpacity>
-);
-
-PauseButton.propTypes = {
-  onPauseTapped: PropTypes.func.isRequired,
-};
+import PlayButton from '../../../../../../components/buttons/PlayButton';
+import PauseButton from '../../../../../../components/buttons/PauseButton';
 
 const Toggler = ({
   buttonColor,
@@ -46,7 +13,11 @@ const Toggler = ({
 }) => (
   <View style={styles.container}>
     <View style={[styles.toggler, { backgroundColor: buttonColor }]}>
-      { playing ? <PauseButton {...{ onPauseTapped }} /> : <PlayButton {...{ onPlayTapped }} /> }
+      {
+        playing ?
+          <PauseButton iconSize={30} iconStyles={styles.icon} {...{ onPauseTapped }} /> :
+          <PlayButton iconSize={30} iconStyles={[styles.icon, styles.play]} {...{ onPlayTapped }} />
+      }
     </View>
   </View>
 );
