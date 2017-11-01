@@ -9,6 +9,13 @@ import { getNextImage, getPlaying, getPreviousImage } from '../../reducer';
 import PauseIcon from '../../../../components/PauseIcon';
 import PlayIcon from '../../../../components/PlayIcon';
 
+const HIT_SLOP = {
+  bottom: 30,
+  left: 30,
+  right: 30,
+  top: 30,
+};
+
 const ControlBar = ({
   nextImage,
   previousImage,
@@ -20,21 +27,21 @@ const ControlBar = ({
   <View style={styles.container}>
     <TouchableOpacity
       onPress={() => { onPreviousImageTapped(previousImage); }}
-      style={styles.element}
+      hitSlop={HIT_SLOP}
     >
       <Icon name="ios-arrow-back" size={35} color="white" />
     </TouchableOpacity>
 
     <TouchableOpacity
       onPress={onPlayPauseTapped}
-      style={styles.element}
+      hitSlop={HIT_SLOP}
     >
       { playing ? <PauseIcon /> : <PlayIcon /> }
     </TouchableOpacity>
 
     <TouchableOpacity
       onPress={() => { onNextImageTapped(nextImage); }}
-      style={styles.element}
+      hitSlop={HIT_SLOP}
     >
       <Icon name="ios-arrow-forward" size={35} color="white" />
     </TouchableOpacity>
