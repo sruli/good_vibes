@@ -4,7 +4,7 @@ import { getCurrentImage } from '../../reducer';
 
 const initialState = {
   id: null,
-  song: '',
+  song: {},
   images: [],
   buttonColor: 'black',
 };
@@ -23,6 +23,10 @@ export const getImages = state => (
   state.DailyVibe.data.vibe.images
 );
 
+export const getSongFile = state => (
+  state.DailyVibe.data.vibe.song.file
+);
+
 // TODO test
 export const getBackgroundImage = (state) => {
   const currentImage = getCurrentImage(state);
@@ -33,3 +37,8 @@ export const getBackgroundImage = (state) => {
 export const getButtonColor = state => (
   state.DailyVibe.data.vibe.buttonColor
 );
+
+export const getSongDescription = (state) => {
+  const { name, artist } = state.DailyVibe.data.vibe.song;
+  return `${artist} - ${name}`;
+};
