@@ -2,6 +2,7 @@ import {
   CURRENT_IMAGE_CHANGED,
   PLAY_TAPPED,
   PAUSE_TAPPED,
+  SONG_FINISHED,
   TIMER_RESET,
   TIMER_SET,
 } from './actionTypes';
@@ -17,6 +18,10 @@ export const playTapped = () => ({
 
 export const pauseTapped = () => ({
   type: PAUSE_TAPPED,
+});
+
+export const songFinished = () => ({
+  type: SONG_FINISHED,
 });
 
 export const imageTimerSet = timerKey => ({

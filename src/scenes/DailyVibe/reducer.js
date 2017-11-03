@@ -1,18 +1,25 @@
 import { combineReducers } from 'redux';
 import dataReducer from './data/reducer';
-import { getImages } from './data/vibe/reducer';
+
+// actionTypes
+import { VIBE_SETUP } from './data/vibe/actionTypes';
 import {
   CURRENT_IMAGE_CHANGED,
-  PLAY_TAPPED,
   PAUSE_TAPPED,
+  PLAY_TAPPED,
+  SONG_FINISHED,
   TIMER_SET,
 } from './actionTypes';
+
+// selectors
+import { getImages } from './data/vibe/reducer';
 
 const playingReducer = (state = false, action) => {
   switch (action.type) {
     case PLAY_TAPPED:
       return true;
     case PAUSE_TAPPED:
+    case SONG_FINISHED:
       return false;
     default:
       return state;
@@ -37,10 +44,20 @@ const timerKeyReducer = (state = null, action) => {
   }
 };
 
+const musicPlayerReducer = (state = null, action) => {
+  switch (action.type) {
+    case VIBE_SETUP:
+      return action.payload.musicPlayer;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   playing: playingReducer,
   currentImage: currentImageReducer,
   timerKey: timerKeyReducer,
+  musicPlayer: musicPlayerReducer,
   data: dataReducer,
 });
 
@@ -54,6 +71,10 @@ export const getPlaying = state => (
 
 export const getTimerKey = state => (
   state.DailyVibe.timerKey
+);
+
+export const getMusicPlayer = state => (
+  state.DailyVibe.musicPlayer
 );
 
 // TODO test
