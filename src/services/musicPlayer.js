@@ -11,3 +11,7 @@ export async function playSong(musicPlayer) {
 export async function pauseSong(musicPlayer) {
   await musicPlayer.pauseAsync();
 }
+
+export async function stopSong(musicPlayer) {
+  await musicPlayer.stopAsync();
+}

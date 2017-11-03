@@ -5,8 +5,9 @@ import dataReducer from './data/reducer';
 import { VIBE_SETUP } from './data/vibe/actionTypes';
 import {
   CURRENT_IMAGE_CHANGED,
-  PLAY_TAPPED,
   PAUSE_TAPPED,
+  PLAY_TAPPED,
+  SONG_FINISHED,
   TIMER_SET,
 } from './actionTypes';
 
@@ -18,6 +19,7 @@ const playingReducer = (state = false, action) => {
     case PLAY_TAPPED:
       return true;
     case PAUSE_TAPPED:
+    case SONG_FINISHED:
       return false;
     default:
       return state;
