@@ -2,7 +2,7 @@ const vibes = [
   {
     id: 1,
     song: {
-      file: '../../db/vibes/1/Peach.mp3',
+      file: require('../../../../../db/vibes/1/Peach.mp3'),
       name: 'Mushaboom',
       artist: 'Feist',
     },
@@ -16,7 +16,7 @@ const vibes = [
   {
     id: 2,
     song: {
-      file: '../../db/vibes/2/disco.mp3',
+      file: require('../../../../../db/vibes/2/disco.mp3'),
       name: 'Don\'t Threaten Me With a Good Time',
       artist: 'Panic! At The Disco',
     },
@@ -30,7 +30,7 @@ const vibes = [
   {
     id: 3,
     song: {
-      file: '../../db/vibes/3/Golden.mp3',
+      file: require('../../../../../db/vibes/3/Golden.mp3'),
       name: 'Golden (feat. Sia)',
       artist: 'Travie McCoy',
     },

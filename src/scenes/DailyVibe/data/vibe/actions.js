@@ -1,4 +1,4 @@
-import { VIBE_FETCHED } from './actionTypes';
+import { VIBE_FETCHED, VIBE_SETUP } from './actionTypes';
 
 export const vibeFetched = () => {
   const indexes = [0, 1, 2];
@@ -8,3 +8,9 @@ export const vibeFetched = () => {
     payload: { vibeId },
   };
 };
+
+export const vibeSetup = musicPlayer => ({
+  type: VIBE_SETUP,
+  payload: { musicPlayer },
+});
+
